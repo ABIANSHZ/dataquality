@@ -20,8 +20,6 @@ expected_data_types = {
     'AdmissionDate': 'datetime64[ns]',
     'DischargeDate': 'datetime64[ns]'
 }
-
-# Conformity Check: Verify each column's data type
 conformity_issues = {}
 for col, expected_type in expected_data_types.items():
     if col in df.columns and df[col].dtype != expected_type:
@@ -53,6 +51,6 @@ unique_issues
 redundant_data = df[df.duplicated()]
 redundant_data
 
-medical_records = pd.DataFrame({'PatientID': [1, 2, 3, 4, 5]})  # Example related DataFrame
+medical_records = pd.DataFrame({'PatientID': [1, 2, 3, 4, 5]})  
 missing_references = medical_records[~medical_records['PatientID'].isin(df['PatientID'])]
 missing_references
